@@ -1,0 +1,30 @@
+h2 {
+  text-align: center;
+}
+#status{
+  margin-top:10px;
+}
+
+#button{
+  margin-top:10px;
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+  width: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.grise {
+  color: lightgray;
+}
+
+.erreur {
+  color: red;
+}

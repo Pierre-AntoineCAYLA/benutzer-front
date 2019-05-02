@@ -1,0 +1,59 @@
+<h2>Benutzerzusatz</h2>
+<br/>
+<br/>
+<form class="container" (ngSubmit)="handleSubmit()" [formGroup]="userForm" method="post">
+  <div class="row">
+    <label for="name" class="offset-2 col-1">Name</label>
+    <input class="form-control col-9"
+               name="name" id="name" required
+               [formControl]="nameCtrl" [(ngModel)]="name">
+  </div>
+     <div class="col" *ngIf="nameCtrl.dirty && nameCtrl.hasError('required')" class="alert alert-danger" role="alert">
+       <span class="offset-3 col-7">Feld ist erforderlich</span>
+    </div>
+
+  <div class="row">
+    <label for="vorname" class="offset-2 col-1">Vorname</label>
+        <input class="form-control col-9"
+               name="vorname" id="vorname" required
+               [formControl]="vornameCtrl" [(ngModel)]="vorname">
+  </div>
+    <div *ngIf="vornameCtrl.dirty && vornameCtrl.hasError('required')" class="alert alert-danger" role="alert">
+      <span class="offset-3 col-7">Feld ist erforderlich</span>
+    </div>
+
+  <div class="row">
+    <label for="email" class="offset-2 col-1">Email</label>
+    <input type="email" class="form-control col-9" name="email" id="email" required eindeutigmail email [formControl]="emailCtrl" [(ngModel)]="email">
+  </div>
+  <div *ngIf="emailCtrl.hasError('email') && emailCtrl.dirty" class="alert alert-danger" role="alert">
+    <p class="offset-3 col-9">Es ist nicht ein Email Adress</p>
+  </div>
+  <div *ngIf="emailCtrl.hasError('eindeutigmail')" class="alert alert-danger" role="alert">
+    <p class="offset-3 col-9">Email muss eindeutig sein</p>
+  </div>
+  <div *ngIf="emailCtrl.hasError('required') && emailCtrl.dirty" class="alert alert-danger" role="alert">
+    <p class="offset-3 col-9">Feld ist erforderlich</p>
+  </div>
+
+    <div class="row" id="status">
+      <label class="offset-2 col-1">Status</label>
+      <input type="radio" class="form-control col-1"[(ngModel)]="status" name="status" [formControl]="statusCtrl"[value]="true">Aktiv
+      <input type="radio" class="form-control col-1"[(ngModel)]="status" name="status" [formControl]="statusCtrl"[value]="false">Inaktiv
+    </div>
+
+  <div class="form-group row" id="button">
+    <div class="col mr-2">
+      <div class="row justify-content-end">
+        <input class="btn btn-danger align-self-end" type="button" value="Stornieren" [routerLink]="['/benutzer']">
+      </div>
+    </div>
+    <div class="col">
+      <div class="row justify-content-start">
+        <input class="btn btn-success" type="submit" value="Bestätigen" [disabled]="userForm.invalid" (click)="changeSuccessMessage()">
+      </div>
+    </div>
+  </div>
+</form>
+
+<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>

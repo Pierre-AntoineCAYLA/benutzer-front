@@ -1,0 +1,18 @@
+{
+  "benutzer": [
+    {
+      "name": "Dubail",
+      "vorname": "Claire",
+      "email": "dubail.claire@nag.ch",
+      "status": false,
+      "id": 1
+    },
+    {
+      "name": "Batiot",
+      "vorname": "Hans",
+      "email": "batiot.hans@nag.ch",
+      "status": true,
+      "id": 2
+    }
+  ]
+}
