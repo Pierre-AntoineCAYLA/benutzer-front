@@ -25,7 +25,7 @@ export class IsteindeutigmailValidator implements AsyncValidator {
   validate(c: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     return this.service.getBenutzerByEmail(c.value).pipe(
       map(benutzer => {
-        return benutzer && benutzer.length > 0 ? {"eindeutigmail": true} : null;
+        return benutzer.length > 0 ? {"eindeutigmail": true} : null;
       })
     );
   }

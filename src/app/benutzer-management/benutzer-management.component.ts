@@ -19,21 +19,7 @@ export class BenutzersManagementComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+    this.modalService.open(content);
   }
   deleteBenutzer(benutzer: Benutzer) {
     this.benutzers.splice(this.benutzers.indexOf(benutzer), 1);
@@ -45,8 +31,8 @@ export class BenutzersManagementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getBenutzers().subscribe(abs => {
-      this.benutzers = abs;
+    this.service.getBenutzers().subscribe(ben => {
+      this.benutzers = ben;
     });
   }
 }

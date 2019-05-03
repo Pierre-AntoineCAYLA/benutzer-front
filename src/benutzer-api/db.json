@@ -4,14 +4,14 @@
       "name": "Dubail",
       "vorname": "Claire",
       "email": "dubail.claire@nag.ch",
-      "status": false,
+      "status": true,
       "id": 1
     },
     {
       "name": "Batiot",
       "vorname": "Hans",
       "email": "batiot.hans@nag.ch",
-      "status": true,
+      "status": false,
       "id": 2
     }
   ]

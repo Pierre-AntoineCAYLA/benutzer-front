@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Benutzer} from '../model/benutzer';
-import {API_BASE_URL, API_BENUTZER} from "../app.constRoute";
-//import {API_BENUTZER, API_BASE_URL} from './constServices';
+//import {API_BASE_URL, API_BENUTZER} from "../app.constRoute";
+import {API_BENUTZER, API_BASE_URL} from './constServices';
 
 @Injectable()
 export class BenutzerService {

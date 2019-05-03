@@ -45,8 +45,8 @@ export class BenutzerManagementUpdateComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.benutzer.id = +params.get('idBenutzer');
     });
-    this.benutzerService.getBenutzerById(this.benutzer.id).toPromise().then(m => this.benutzer = m);
-    this.benutzerService.getBenutzerById(this.benutzer.id).toPromise().then(m => this.naueBenutzer= m);
+    this.benutzerService.getBenutzerById(this.benutzer.id).toPromise().then(b => this.benutzer = b);
+    this.benutzerService.getBenutzerById(this.benutzer.id).toPromise().then(b => this.naueBenutzer= b);
     console.log(this.benutzer)
   }
 

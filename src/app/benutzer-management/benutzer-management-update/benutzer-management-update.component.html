@@ -1,15 +1,15 @@
 <div class="container">
-  <h2>Update des Benutzers {{naueBenutzer.name}} {{naueBenutzer.vorname}} ({{naueBenutzer.email}})</h2>
+  <h2>Verändern den Benutzer {{naueBenutzer.name}} {{naueBenutzer.vorname}} ({{naueBenutzer.email}})</h2>
   <form (ngSubmit)="handleSubmit()" name="formeAjout" [formGroup]="benutzerForm">
     <div class="form-group row justify-content-center">
       <label class="col-form-label mr-2">Status</label>
-      <input type="radio"[(ngModel)]="status" name="status" [formControl]="statusCtrl"[value]="true" checked>  Aktiv
+      <input type="radio"[(ngModel)]="status" name="status" [formControl]="statusCtrl"[value]="true">  Aktiv
       <input type="radio"[(ngModel)]="status" name="status" [formControl]="statusCtrl"[value]="false">   Inaktiv
     </div>
 
     <div class="row">
-      <button class="btn btn-danger col-3 offset-5" (click)="handleSubmit()">Annuler</button>
-      <button class="btn btn-success col-3" (click)="updateBenutzer(benutzer)" [disabled]="benutzerForm.invalid">Modifier</button>
+      <button class="btn btn-danger col-3 offset-5" (click)="handleSubmit()">Stornieren</button>
+      <button class="btn btn-success col-3" (click)="updateBenutzer(benutzer)" [disabled]="benutzerForm.invalid">Verändern</button>
     </div>
   </form>
 </div>

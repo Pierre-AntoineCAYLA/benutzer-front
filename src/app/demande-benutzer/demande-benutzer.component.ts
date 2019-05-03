@@ -4,6 +4,8 @@ import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
 import {BenutzerService} from "../services/BenutzerService";
 import {Benutzer} from "../model/benutzer";
+import {PATH_BENUTZER} from "../app.constRoute";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-demande-benutzer',
@@ -28,7 +30,7 @@ export class DemandebenutzerComponent implements OnInit {
   email="";
   status=false;
 
-  constructor(fb: FormBuilder, private benService: BenutzerService) {
+  constructor(fb: FormBuilder, private benService: BenutzerService, private router: Router) {
     this.statusCtrl=fb.control('',);
     this.nameCtrl = fb.control('', [Validators.required]);
     this.vornameCtrl = fb.control('', [Validators.required]);
@@ -43,6 +45,10 @@ export class DemandebenutzerComponent implements OnInit {
 
   handleSubmit() {
     this.benService.putBenutzer(new Benutzer(this.name, this.vorname, this.email, this.status)).subscribe();
+
+    setTimeout(() => {
+      this.router.navigate([PATH_BENUTZER]);
+    }, 1000);
   }
 
   ngOnInit() {
@@ -54,4 +60,5 @@ export class DemandebenutzerComponent implements OnInit {
   public changeSuccessMessage() {
     this._success.next(`Der Benutzer ist hinzusetzt !`);
   }
+
 }
